@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stonescrissorpaper/Provider/Provider.dart';
 
-class ListDots extends StatefulWidget {
+class ListDotsVariants extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() => ListDotsState();
+  State<StatefulWidget> createState() => ListDotsVariantsState();
 }
 
-class ListDotsState extends State<ListDots> {
+class ListDotsVariantsState extends State<ListDotsVariants> {
   @override
   Widget build(BuildContext context) {
     ProviderGame _provider = Provider.of<ProviderGame>(context);
@@ -20,12 +20,12 @@ class ListDotsState extends State<ListDots> {
           AnimatedContainer(
             duration: Duration(milliseconds: 250),
             height: 8,
-            width: _provider.indexFocusedVariants == 0 ? 14 : 8,
+            width: _provider.indexVariantsFocused == 0 ? 14 : 8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(48),
               color:
-                  _provider.indexFocusedVariants == 0
-                      ? Colors.green
+                  _provider.indexVariantsFocused == 0
+                      ? Colors.yellow
                       : Colors.grey,
             ),
           ),
@@ -33,12 +33,12 @@ class ListDotsState extends State<ListDots> {
           AnimatedContainer(
             duration: Duration(milliseconds: 250),
             height: 8,
-            width: _provider.indexFocusedVariants == 1 ? 14 : 8,
+            width: _provider.indexVariantsFocused == 1 ? 14 : 8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(48),
               color:
-                  _provider.indexFocusedVariants == 1
-                      ? Colors.green
+                  _provider.indexVariantsFocused == 1
+                      ? Colors.yellow
                       : Colors.grey,
             ),
           ),
@@ -46,12 +46,12 @@ class ListDotsState extends State<ListDots> {
           AnimatedContainer(
             duration: Duration(milliseconds: 250),
             height: 8,
-            width: _provider.indexFocusedVariants == 2 ? 14 : 8,
+            width: _provider.indexVariantsFocused == 2 ? 14 : 8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(48),
               color:
-                  _provider.indexFocusedVariants == 2
-                      ? Colors.green
+                  _provider.indexVariantsFocused == 2
+                      ? Colors.yellow
                       : Colors.grey,
             ),
           ),
