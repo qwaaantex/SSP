@@ -36,46 +36,75 @@ class GameScreenState extends State<GameScreen> {
                   children: [
                     SubTittle(),
                     SizedBox(height: 10),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Игра",
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.85,
 
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        SizedBox(width: 2),
-                        Container(
-                          alignment: Alignment.topRight,
-                          height: 16,
-                          width: 16,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(28),
-                            color: Colors.green,
-                          ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "SSP",
 
-                          child: Center(
-                            child: Text(
-                              "AI",
-                              style: TextStyle(
-                                fontSize: 8,
-                                fontWeight: FontWeight.bold,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
+                              SizedBox(width: 2),
+                              Container(
+                                alignment: Alignment.topRight,
+                                height: 16,
+                                width: 16,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(28),
+                                  color: Colors.green,
+                                ),
+
+                                child: Center(
+                                  child: Text(
+                                    "AI",
+                                    style: TextStyle(
+                                      fontSize: 8,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
+                          Row(
+                            children: [
+                              Text(
+                                "Выбрать сложность",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: null,
+                                icon: Icon(
+                                  Icons.swipe,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
 
                     Container(
                       width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.65,
+                      height: MediaQuery.of(context).size.height * 0.5,
 
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(24),
@@ -122,16 +151,34 @@ class GameScreenState extends State<GameScreen> {
                                                   0.5,
                                               child:
                                                   !_provider.isChosensStep
-                                                      ? Center(
-                                                        child: Text(
-                                                          "${_provider.GetAnswerTimer}",
-                                                          style: TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 50,
+                                                      ? Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            "${_provider.GetAnswerTimer}",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 50,
+                                                            ),
+                                                            textAlign:
+                                                                TextAlign
+                                                                    .center,
                                                           ),
-                                                          textAlign:
-                                                              TextAlign.center,
-                                                        ),
+                                                          Text(
+                                                            "Генерируем ответ..",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.white,
+                                                              fontSize: 16,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                            ),
+                                                          ),
+                                                        ],
                                                       )
                                                       : !_provider.isStepEnd
                                                       ? Center(
@@ -140,9 +187,20 @@ class GameScreenState extends State<GameScreen> {
                                                                   .isRightAnswer
                                                               ? "Верно"
                                                               : "Неверно",
+                                                          style: TextStyle(
+                                                            color: Colors.white,
+                                                            fontSize: 30,
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
                                                         ),
                                                       )
                                                       : TextButton(
+                                                        style: TextButton.styleFrom(
+                                                          overlayColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
                                                         onPressed: () {
                                                           _provider.getAnswer(
                                                             index,
@@ -187,13 +245,26 @@ class GameScreenState extends State<GameScreen> {
                                       ),
                                     ],
                                   )
-                                  : Text(
-                                    "${_provider.StartGame}",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 50,
-                                    ),
-                                    textAlign: TextAlign.center,
+                                  : Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "${_provider.StartGame}",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 50,
+                                        ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      Text(
+                                        "Игра начнется через..",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ],
                                   )
                               : Stack(
                                 children: [
@@ -256,6 +327,25 @@ class GameScreenState extends State<GameScreen> {
                     ),
                   ],
                 ),
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+                  Text(
+                    "Хотите узнать новое?",
+                    style: TextStyle(color: Colors.white),
+                  ),
+
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      overlayColor: Colors.transparent,
+                    ),
+                    onPressed: () {},
+                    child: Text("Ещё", style: TextStyle(color: Colors.indigo)),
+                  ),
+                ],
               ),
             ],
           ),

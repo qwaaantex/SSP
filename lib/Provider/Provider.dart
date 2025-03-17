@@ -84,7 +84,6 @@ class ProviderGame extends ChangeNotifier {
           } else if ((userChoice == 0 && computerChoice == 1) ||
               (userChoice == 1 && computerChoice == 2) ||
               (userChoice == 2 && computerChoice == 0)) {
-            // Paper beats rock
             isRightAnswer = true;
           } else {
             isRightAnswer = false;
