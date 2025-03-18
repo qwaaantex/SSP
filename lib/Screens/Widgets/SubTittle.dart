@@ -17,7 +17,7 @@ class SubTittle extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.05,
 
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(48),
+            borderRadius: BorderRadius.circular(16),
             color: Colors.yellowAccent,
           ),
           padding: EdgeInsets.all(8),

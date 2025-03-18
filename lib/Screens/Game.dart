@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stonescrissorpaper/Provider/Provider.dart';
+import 'package:stonescrissorpaper/Screens/GameInfo.dart';
+import 'package:stonescrissorpaper/Screens/Widgets/ChoiceLevel.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/ListDotsVariants.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/SubTittle.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -36,67 +38,40 @@ class GameScreenState extends State<GameScreen> {
                   children: [
                     SubTittle(),
                     SizedBox(height: 10),
+
                     Container(
                       width: MediaQuery.of(context).size.width * 0.85,
-
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "SSP",
-
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(width: 2),
-                              Container(
-                                alignment: Alignment.topRight,
-                                height: 16,
-                                width: 16,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(28),
-                                  color: Colors.green,
-                                ),
-
-                                child: Center(
-                                  child: Text(
-                                    "AI",
-                                    style: TextStyle(
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Text(
+                            "SSP",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          Row(
-                            children: [
-                              Text(
-                                "Выбрать сложность",
+                          SizedBox(width: 2),
+                          Container(
+                            alignment: Alignment.topRight,
+                            height: 16,
+                            width: 16,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(28),
+                              color: Colors.green,
+                            ),
+
+                            child: Center(
+                              child: Text(
+                                "AI",
                                 style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.white,
+                                  fontSize: 8,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              IconButton(
-                                onPressed: null,
-                                icon: Icon(
-                                  Icons.swipe,
-                                  color: Colors.white,
-                                  size: 20,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ],
                       ),
@@ -227,6 +202,7 @@ class GameScreenState extends State<GameScreen> {
                                                                   TextAlign
                                                                       .center,
                                                             ),
+
                                                             Image.asset(
                                                               index == 0
                                                                   ? "assets/images/Stone.png"
@@ -269,6 +245,10 @@ class GameScreenState extends State<GameScreen> {
                               : Stack(
                                 children: [
                                   Align(
+                                    alignment: Alignment.topRight,
+                                    child: ChoiceLevel(),
+                                  ),
+                                  Align(
                                     alignment: Alignment.center,
                                     child: Text(
                                       "Для начала игры,\nнажмите кнопку ниже.",
@@ -289,7 +269,7 @@ class GameScreenState extends State<GameScreen> {
                       duration: Duration(milliseconds: 450),
                       width: widght,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(48),
+                        borderRadius: BorderRadius.circular(16),
                         color: isPlaying ? Colors.redAccent : Colors.green,
                       ),
 
@@ -308,7 +288,7 @@ class GameScreenState extends State<GameScreen> {
                     Container(
                       width: MediaQuery.of(context).size.width * 0.9,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(48),
+                        borderRadius: BorderRadius.circular(16),
                         gradient: LinearGradient(
                           colors: [Colors.white, Colors.blueAccent],
                         ),
@@ -342,7 +322,28 @@ class GameScreenState extends State<GameScreen> {
                     style: TextButton.styleFrom(
                       overlayColor: Colors.transparent,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          transitionDuration: Duration(milliseconds: 400),
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  GameInfo(),
+                          transitionsBuilder: (
+                            context,
+                            animation,
+                            secondaryAnimation,
+                            child,
+                          ) {
+                            return FadeTransition(
+                              opacity: animation,
+                              child: child,
+                            );
+                          },
+                        ),
+                      );
+                    },
                     child: Text("Ещё", style: TextStyle(color: Colors.indigo)),
                   ),
                 ],
