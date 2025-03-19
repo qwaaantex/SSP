@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stonescrissorpaper/Provider/Provider.dart';
-import 'package:stonescrissorpaper/Screens/GameInfo.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/ChoiceLevel.dart';
+import 'package:stonescrissorpaper/Screens/Widgets/Created.dart';
+import 'package:stonescrissorpaper/Screens/Widgets/FeedBacks.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/ListDotsVariants.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/SubTittle.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:stonescrissorpaper/Screens/Widgets/Tittle.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -21,12 +22,13 @@ class GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     var widght = MediaQuery.of(context).size.width * 0.9;
     ProviderGame _provider = Provider.of<ProviderGame>(context);
-    Uri _uri = Uri.parse(_provider.link);
     bool isPlaying = _provider.isPlaying;
     return Scaffold(
       body: Stack(
         children: [
-          Container(decoration: BoxDecoration(color: Colors.black87)),
+          Container(
+            decoration: BoxDecoration(color: ThemeData.dark().canvasColor),
+          ),
 
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,45 +40,7 @@ class GameScreenState extends State<GameScreen> {
                   children: [
                     SubTittle(),
                     SizedBox(height: 10),
-
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.85,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "SSP",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(width: 2),
-                          Container(
-                            alignment: Alignment.topRight,
-                            height: 16,
-                            width: 16,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(28),
-                              color: Colors.green,
-                            ),
-
-                            child: Center(
-                              child: Text(
-                                "AI",
-                                style: TextStyle(
-                                  fontSize: 8,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
+                    Tittle(),
                     Container(
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.5,
@@ -187,6 +151,15 @@ class GameScreenState extends State<GameScreen> {
                                                                   .center,
                                                           children: [
                                                             Text(
+                                                              "Ваш выбор:",
+                                                              style: TextStyle(
+                                                                color:
+                                                                    Colors
+                                                                        .white70,
+                                                                fontSize: 30,
+                                                              ),
+                                                            ),
+                                                            Text(
                                                               _provider
                                                                   .AnswersVariants[index],
                                                               style: TextStyle(
@@ -196,11 +169,15 @@ class GameScreenState extends State<GameScreen> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .bold,
-                                                                fontSize: 20,
+                                                                fontSize: 26,
                                                               ),
                                                               textAlign:
                                                                   TextAlign
                                                                       .center,
+                                                            ),
+
+                                                            SizedBox(
+                                                              height: 10,
                                                             ),
 
                                                             Image.asset(
@@ -209,6 +186,7 @@ class GameScreenState extends State<GameScreen> {
                                                                   : index == 1
                                                                   ? "assets/images/Scissor.png"
                                                                   : "assets/images/Paper.png",
+                                                              scale: 1.7,
                                                             ),
                                                           ],
                                                         ),
@@ -285,68 +263,11 @@ class GameScreenState extends State<GameScreen> {
                       ),
                     ),
                     SizedBox(height: 10),
-                    Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16),
-                        gradient: LinearGradient(
-                          colors: [Colors.white, Colors.blueAccent],
-                        ),
-                      ),
-                      child: TextButton(
-                        onPressed: () async {
-                          if (!await launchUrl(_uri)) {
-                            print("Ошибка");
-                          }
-                        },
-                        child: Text(
-                          "Оставить отзыв",
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                    ),
+                    FeedBack(),
+                    SizedBox(height: 10),
+                    Created(),
                   ],
                 ),
-              ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-
-                children: [
-                  Text(
-                    "Хотите узнать новое?",
-                    style: TextStyle(color: Colors.white),
-                  ),
-
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      overlayColor: Colors.transparent,
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 400),
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  GameInfo(),
-                          transitionsBuilder: (
-                            context,
-                            animation,
-                            secondaryAnimation,
-                            child,
-                          ) {
-                            return FadeTransition(
-                              opacity: animation,
-                              child: child,
-                            );
-                          },
-                        ),
-                      );
-                    },
-                    child: Text("Ещё", style: TextStyle(color: Colors.indigo)),
-                  ),
-                ],
               ),
             ],
           ),

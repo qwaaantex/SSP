@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:pull_down_button/pull_down_button.dart';
+import 'package:stonescrissorpaper/Screens/GameInfo.dart';
+import 'package:stonescrissorpaper/Screens/Widgets/Usage.dart';
 
 class ChoiceLevel extends StatefulWidget {
   const ChoiceLevel({super.key});
@@ -15,31 +17,52 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
   Widget build(BuildContext context) {
     return PullDownButton(
       position: PullDownMenuPosition.automatic,
-      routeTheme: PullDownMenuRouteTheme(backgroundColor: Colors.white70),
+
+      routeTheme: PullDownMenuRouteTheme(
+        backgroundColor: ThemeData.dark().disabledColor,
+      ),
 
       itemBuilder:
           (context) => [
-            const PullDownMenuTitle(title: Text('Сложность')),
+            const PullDownMenuTitle(title: Text('Выбор страницы')),
             PullDownMenuHeader(
-              leading: Icon(Icons.stream_outlined),
-              title: 'Легкий',
+              leading: Icon(Icons.gamepad),
+              title: 'О игре',
               subtitle: 'Выбрать..',
-              onTap: () {},
-              icon: Icons.star_border,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    transitionDuration: Duration(milliseconds: 300),
+                    pageBuilder:
+                        (context, animation, secondaryAnimation) => GameInfo(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return FadeTransition(opacity: animation, child: child);
+                    },
+                  ),
+                );
+              },
+
+              icon: Icons.keyboard_arrow_right,
             ),
             PullDownMenuHeader(
-              leading: Icon(Icons.medical_services_rounded),
-              title: 'Средний',
+              leading: Icon(Icons.data_usage),
+              title: 'Использование',
               subtitle: 'Выбрать..',
-              onTap: () {},
-              icon: Icons.star_half,
-            ),
-            PullDownMenuHeader(
-              leading: Icon(Icons.handshake_rounded),
-              title: 'Сложный',
-              subtitle: 'Выбрать..',
-              onTap: () {},
-              icon: Icons.star,
+              onTap: () {
+                showModalBottomSheet(
+                  barrierColor: Colors.black.withOpacity(0.5),
+                  backgroundColor: ThemeData.dark().canvasColor,
+                  context: context,
+                  builder: (context) => Usage(),
+                );
+              },
+              icon: Icons.keyboard_arrow_right,
             ),
           ],
       buttonBuilder:
@@ -47,7 +70,7 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
             onPressed: showMenu,
             child: const Icon(
               Ionicons.hardware_chip,
-              color: Colors.white,
+              color: Colors.white70,
               size: 24,
             ),
           ),

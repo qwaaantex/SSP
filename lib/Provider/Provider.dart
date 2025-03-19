@@ -91,9 +91,10 @@ class ProviderGame extends ChangeNotifier {
 
           isChosensStep = true;
 
-          Timer(Duration(seconds: 2), () {
+          Timer(Duration(seconds: 3), () {
             if (isPlaying) {
               isStepEnd = true;
+              isPlaying = !isPlaying;
               notifyListeners();
             }
           });
