@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stonescrissorpaper/Screens/Game.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/Created.dart';
 
 class GameInfo extends StatefulWidget {
@@ -36,26 +35,7 @@ class _GameInfoState extends State<GameInfo> {
                   backgroundColor: ThemeData.dark().canvasColor,
                   leading: IconButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: Duration(milliseconds: 300),
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  GameScreen(),
-                          transitionsBuilder: (
-                            context,
-                            animation,
-                            secondaryAnimation,
-                            child,
-                          ) {
-                            return FadeTransition(
-                              opacity: animation,
-                              child: child,
-                            );
-                          },
-                        ),
-                      );
+                      Navigator.pop(context);
                     },
                     icon: Icon(Icons.arrow_back_ios, color: Colors.grey),
                   ),

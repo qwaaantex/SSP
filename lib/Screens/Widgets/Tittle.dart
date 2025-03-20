@@ -21,24 +21,24 @@ class _TittleState extends State<Tittle> {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 18,
+              fontSize: 22,
               fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(width: 2),
           Container(
             alignment: Alignment.topRight,
-            height: 16,
-            width: 16,
+            height: 18,
+            width: 18,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(28),
+              shape: BoxShape.circle,
               color: Colors.green,
             ),
 
             child: Center(
               child: Text(
                 "AI",
-                style: TextStyle(fontSize: 8, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               ),
             ),
           ),

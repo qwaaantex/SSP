@@ -88,36 +88,27 @@ class _GameLogicState extends State<GameLogic> {
                                             ),
                                           ),
                                         )
-                                        : TextButton(
-                                          style: TextButton.styleFrom(
-                                            overlayColor: Colors.transparent,
-                                          ),
-                                          onPressed: () {
-                                            _provider.getAnswer(index);
-                                          },
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Text(
-                                                "Ваш выбор:",
-                                                style: TextStyle(
-                                                  color: Colors.white70,
-                                                  fontSize: 30,
-                                                ),
+                                        : Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Text(
+                                              "Ваш выбор:",
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24,
                                               ),
-                                              Text(
-                                                _provider
-                                                    .AnswersVariants[index],
-                                                style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 26,
-                                                ),
-                                                textAlign: TextAlign.center,
+                                            ),
+                                            TextButton(
+                                              style: TextButton.styleFrom(
+                                                overlayColor:
+                                                    Colors.transparent,
                                               ),
-                                              SizedBox(height: 10),
-                                              AnimatedSwitcher(
+                                              onPressed: () {
+                                                _provider.getAnswer(index);
+                                              },
+                                              child: AnimatedSwitcher(
                                                 duration: Duration(
                                                   milliseconds: 300,
                                                 ),
@@ -139,8 +130,8 @@ class _GameLogicState extends State<GameLogic> {
                                                   scale: 1.7,
                                                 ),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                               ),
                             );
@@ -173,14 +164,21 @@ class _GameLogicState extends State<GameLogic> {
                   Align(alignment: Alignment.topRight, child: ChoiceLevel()),
                   Align(
                     alignment: Alignment.center,
-                    child: Text(
-                      "Для начала игры,\nнажмите кнопку ниже.",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/images/SSP_icon.png", scale: 4),
+
+                        Text(
+                          "Для начала игры,\nнажмите кнопку ниже.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

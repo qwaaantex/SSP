@@ -57,9 +57,16 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
               subtitle: 'Выбрать..',
               onTap: () {
                 showBarModalBottomSheet(
+                  animationCurve: Curves.easeIn,
                   backgroundColor: ThemeData.dark().canvasColor,
                   context: context,
                   barrierColor: Colors.black.withOpacity(0.5),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(48),
+                    ),
+                  ),
+                  isDismissible: true,
                   builder:
                       (context) => Container(
                         decoration: BoxDecoration(

@@ -11,7 +11,7 @@ class Created extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Создано с целью пет-проекта для портфолио",
+            "Создано с целью создания пет-проекта для портфолио.",
             style: TextStyle(color: Colors.grey, fontSize: 12),
             textAlign: TextAlign.center,
           ),

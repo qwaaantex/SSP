@@ -31,5 +31,6 @@ flutter:
     - assets/images/Scissor.png
     - assets/images/Paper.png
     - assets/images/Stone.png
+    - assets/images/SSP_icon.png
 
   uses-material-design: true

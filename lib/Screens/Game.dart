@@ -23,6 +23,11 @@ class GameScreenState extends State<GameScreen> {
     ProviderGame _provider = Provider.of<ProviderGame>(context);
     bool isPlaying = _provider.isPlaying;
     return Scaffold(
+      appBar: AppBar(
+        title: Tittle(),
+        centerTitle: true,
+        backgroundColor: ThemeData.dark().canvasColor,
+      ),
       body: TweenAnimationBuilder(
         tween: Tween(begin: isPlaying ? 0.0 : 1.0, end: isPlaying ? 1.0 : 0.0),
         curve: Curves.bounceIn,
@@ -42,7 +47,7 @@ class GameScreenState extends State<GameScreen> {
                       children: [
                         SubTittle(),
                         SizedBox(height: 10),
-                        Tittle(),
+
                         Container(
                           width: MediaQuery.of(context).size.width * 0.9,
                           height: MediaQuery.of(context).size.height * 0.5,
