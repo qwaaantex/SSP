@@ -1,8 +1,8 @@
 # 📏 SSP
 <p align="center">
 
-  <img src="https://img.shields.io/badge/version-1.0-blue?style=for-the-badge&logo=github" alt="Version">
-  <img src="https://img.shields.io/badge/platform-windows-brightgreen?style=for-the-badge&logo=windows" alt="Platform">
+  <img src="https://img.shields.io/badge/version-1.0.3-blue?style=for-the-badge&logo=github" alt="Version">
+  <img src="https://img.shields.io/badge/platform-CROSSPLATFORM-brightgreen?style=for-the-badge&logo=windows" alt="Platform">
 </p>
 
 ## 🚀 Quick Start
@@ -41,7 +41,7 @@
 
 | Requirement | Specification |
 |------------|---------------|
-| OS | Windows `7/10/11`\nAndroid\nIos\Linux |
+| OS | Windows `7/10/11`, Linux `all`, Android `10+`, Ios `13+`|
 | Framework | .NET `4.7+` |
 
 ## 🔮 Roadmap
