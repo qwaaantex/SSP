@@ -24,8 +24,16 @@ class _GameInfoState extends State<GameInfo> {
                 SliverAppBar(
                   scrolledUnderElevation: 0,
                   pinned: true,
-
-                  backgroundColor: Colors.transparent,
+                  title: Text(
+                    "О игре",
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  centerTitle: true,
+                  backgroundColor: ThemeData.dark().canvasColor,
                   leading: IconButton(
                     onPressed: () {
                       Navigator.push(
@@ -65,7 +73,7 @@ class _GameInfoState extends State<GameInfo> {
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Colors.grey,
-                          fontSize: 26,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:pull_down_button/pull_down_button.dart';
 import 'package:stonescrissorpaper/Screens/GameInfo.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/Usage.dart';
@@ -55,11 +56,17 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
               title: 'Использование',
               subtitle: 'Выбрать..',
               onTap: () {
-                showModalBottomSheet(
-                  barrierColor: Colors.black.withOpacity(0.5),
+                showBarModalBottomSheet(
                   backgroundColor: ThemeData.dark().canvasColor,
                   context: context,
-                  builder: (context) => Usage(),
+                  barrierColor: Colors.black.withOpacity(0.5),
+                  builder:
+                      (context) => Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(48),
+                        ),
+                        child: SingleChildScrollView(child: Usage()),
+                      ),
                 );
               },
               icon: Icons.keyboard_arrow_right,
