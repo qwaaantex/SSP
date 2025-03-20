@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stonescrissorpaper/Screens/Widgets/Created.dart';
 
 class GameInfo extends StatefulWidget {
@@ -21,30 +22,36 @@ class _GameInfoState extends State<GameInfo> {
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
                 SliverAppBar(
-                  scrolledUnderElevation: 0,
                   pinned: true,
-                  title: Text(
-                    "О игре",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  centerTitle: true,
-                  backgroundColor: ThemeData.dark().canvasColor,
+                  backgroundColor: ThemeData.dark().primaryColor,
+                  surfaceTintColor: ThemeData.dark().primaryColor,
+                  floating: true,
+                  expandedHeight:
+                      MediaQuery.of(context).copyWith().size.height * 0.15,
                   leading: IconButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.grey),
+                    icon: Icon(Icons.arrow_back_ios_new, color: Colors.grey),
+                  ),
+
+                  flexibleSpace: FlexibleSpaceBar(
+                    title: Text(
+                      'О игре и игровых процессах',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    centerTitle: true,
                   ),
                 ),
               ];
             },
             body: Center(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.9,
                 child: SingleChildScrollView(
                   child: Column(
                     children: [

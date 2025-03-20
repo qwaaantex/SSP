@@ -16,8 +16,6 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
   @override
   Widget build(BuildContext context) {
     return PullDownButton(
-      position: PullDownMenuPosition.automatic,
-
       routeTheme: PullDownMenuRouteTheme(
         backgroundColor: ThemeData.dark().disabledColor,
       ),
