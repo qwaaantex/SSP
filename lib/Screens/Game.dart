@@ -39,12 +39,17 @@ class GameScreenState extends State<GameScreen> {
                 decoration: BoxDecoration(color: ThemeData.dark().canvasColor),
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Container(
                     alignment: Alignment.center,
                     child: Column(
                       children: [
+                        Text(
+                          "Работает без интернета и на всех устройствах!",
+                          style: TextStyle(color: Colors.grey, fontSize: 12),
+                        ),
+                        SizedBox(height: 10),
                         SubTittle(),
                         SizedBox(height: 10),
 

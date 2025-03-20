@@ -65,7 +65,7 @@ class _GameInfoState extends State<GameInfo> {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        "Что такое камень, ножницы, бумага?",
+                        "Что это за игра?",
                         style: TextStyle(
                           color: Colors.grey,
                           fontWeight: FontWeight.bold,

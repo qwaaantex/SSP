@@ -95,6 +95,7 @@ class ProviderGame extends ChangeNotifier {
             if (isPlaying) {
               isStepEnd = true;
               isPlaying = !isPlaying;
+              isChosensStep = !isChosensStep;
               notifyListeners();
             }
           });
