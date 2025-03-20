@@ -57,7 +57,6 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
               subtitle: 'Выбрать..',
               onTap: () {
                 showBarModalBottomSheet(
-                  animationCurve: Curves.easeIn,
                   backgroundColor: ThemeData.dark().canvasColor,
                   context: context,
                   barrierColor: Colors.black.withOpacity(0.5),
@@ -85,7 +84,7 @@ class _ChoiceLevelState extends State<ChoiceLevel> {
             child: const Icon(
               Ionicons.hardware_chip,
               color: Colors.white70,
-              size: 24,
+              size: 30,
             ),
           ),
     );

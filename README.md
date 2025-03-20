@@ -27,9 +27,6 @@
 
 ## 🖼️ Visual Showcase
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/93ab537e-5e28-491e-a43b-5d6e6cf51739" width="800" alt="App Screenshot">
-</p>
 
 <details>
 <summary>🔬 Technological Insights</summary>

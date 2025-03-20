@@ -7,7 +7,7 @@ class Usage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog.adaptive(
+    return AlertDialog(
       backgroundColor: Colors.transparent,
 
       icon: Icon(Ionicons.help_circle, color: Colors.grey, size: 30),

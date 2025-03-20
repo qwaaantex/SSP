@@ -127,7 +127,11 @@ class _GameLogicState extends State<GameLogic> {
                                                       : index == 1
                                                       ? "assets/images/Scissor.png"
                                                       : "assets/images/Paper.png",
-                                                  scale: 1.7,
+                                                  scale:
+                                                      MediaQuery.of(
+                                                        context,
+                                                      ).copyWith().size.height *
+                                                      0.001,
                                                 ),
                                               ),
                                             ),
@@ -167,7 +171,10 @@ class _GameLogicState extends State<GameLogic> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset("assets/images/SSP_icon.png", scale: 4),
+                        Image.asset(
+                          "assets/images/SSP_icon.png",
+                          scale: MediaQuery.of(context).size.height * 0.001,
+                        ),
 
                         Text(
                           "Для начала игры,\nнажмите кнопку ниже.",
