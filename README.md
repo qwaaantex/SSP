@@ -41,10 +41,7 @@
 
 | Requirement | Specification |
 |------------|---------------|
-| OS | Windows `7/10/11`|
-| OS | Linux `all` |
-| OS | Android `10+` |
-| OS | Ios `13+` |
+| OS | Windows `7/10/11`, Linux `all`, Android `10+`, Ios `13+`|
 | Framework | .NET `4.7+` |
 
 ## 🔮 Roadmap
